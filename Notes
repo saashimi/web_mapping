@@ -1,7 +1,6 @@
 Joe
 David
 Tim
-Clem
 Abbie
 
 ------------------------
@@ -12,3 +11,30 @@ leaflet quick start
 Lat & long - wgs84
 
 Every ColorBrewer Scale
+
+=======
+Class 2
+
+256px x 256px
+Mapbox MapZen
+
+Mapbox uses UTF grid
+
+=======
+Class 3
+
+Coordinates & Precision - 6 decimals
+Winding order: outer = clockwise
+               inner = counterclockwise
+
+leaflet quirks: passing null
+
+============
+Cl 4
+Layers collect events and data.
+Panes organize them automatically. 
+Know the default leaflet panes. Joe makes custom panes.
+Layer updates: give each feature some ID.
+to count features in a layer, use getLayer()
+
+*Make your own AJAX call.
