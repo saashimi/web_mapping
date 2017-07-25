@@ -36,5 +36,14 @@ Panes organize them automatically.
 Know the default leaflet panes. Joe makes custom panes.
 Layer updates: give each feature some ID.
 to count features in a layer, use getLayer()
+const
+=>
+`
+{}
 
 *Make your own AJAX call.
+
+============
+
+Cl 5
+trimet.org/destinations
