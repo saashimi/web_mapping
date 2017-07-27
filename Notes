@@ -47,3 +47,6 @@ const
 
 Cl 5
 trimet.org/destinations
+Mapboxjs extends leaflet classes.
+* Tiles are more efficient than geojson data.
+pbf - protocol buffer tiles
