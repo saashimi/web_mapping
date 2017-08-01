@@ -44,9 +44,25 @@ const
 *Make your own AJAX call.
 
 ============
-
 Cl 5
 trimet.org/destinations
 Mapboxjs extends leaflet classes.
 * Tiles are more efficient than geojson data.
 pbf - protocol buffer tiles
+
+============
+Cl 6
+Mapbox GL - webGL
+Sources vs layers.
+Data can be static and dynamic.
+Quadtrees
+
+============
+Cl 7 
+newline delimited text - can display points right away while waiting for the rest of the data to load. VS CSV, which requires to load the headings and the first line to make sense of the data.
+
+Node and streams: pipe many things together
+Node modules should do one thing well and one thing only.
+
+https://github.com/joehand/trimet-live-archive/blob/master/index.js
+ws = write stream
