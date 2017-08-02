@@ -59,6 +59,7 @@ Quadtrees
 
 ============
 Cl 7 
+Today's topic is basic API requests.
 newline delimited text - can display points right away while waiting for the rest of the data to load. VS CSV, which requires to load the headings and the first line to make sense of the data.
 
 Node and streams: pipe many things together
@@ -66,3 +67,11 @@ Node modules should do one thing well and one thing only.
 
 https://github.com/joehand/trimet-live-archive/blob/master/index.js
 ws = write stream
+web sockets
+
+=============
+Class Project
+=============
+S. China Sea
+HK land fill over time
+PDX Student Addresses Over time
