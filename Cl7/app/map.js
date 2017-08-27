@@ -11,6 +11,8 @@ var map = new mapboxgl.Map({
     style: 'mapbox://styles/mapbox/light-v9', // stylesheet location
     center: [-122.6782433, 45.5252814], // starting position [lng, lat]
     zoom: 12, // starting zoom
+    minzoom: 8,
+    maxzoom: 15,
     pitch: 85,
     bearing: 45
 })
@@ -214,17 +216,3 @@ var n = this,
     j = (j = i.length) > 3 ? j % 3 : 0;
    return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
  };
-
-
-/*
-    'paint': {
-      'fill-extrusion-color': '#aaa',
-      'fill-extrusion-height': {
-          'type': 'identity',
-          'property': 'TOTALVAL'
-      },
-
-      'fill-extrusion-opacity': .6
-  }
-  */
-//VAC SFR MFR RUR COM

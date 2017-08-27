@@ -2,6 +2,8 @@ Joe
 David
 Tim
 Abbie
+Michael
+Clem
 
 ------------------------
 turf.js mapping library
@@ -69,9 +71,92 @@ https://github.com/joehand/trimet-live-archive/blob/master/index.js
 ws = write stream
 web sockets
 
+npm install
+npm install -g serve
+npm start
+
 =============
 Class Project
 =============
 S. China Sea
 HK land fill over time
 PDX Student Addresses Over time
+
+Cl 8
+====
+ndjson-based workflow
+json map is extremely powerful for javascript expressions. Think math, string management, etc.
+you can pop this back out into geojson by adding the appropriate objects
+====
+
+toposimplify -p 1 -f < garbage.topojson > garbage-simple.topojson
+data.objects[feature]
+NYC planning tile script
+add layer with
+tiles: []
+node fs api
+Tile servers
+
+=========
+Cl 9
+Joe uses tape javascript test library
+Create turf module for geoprocessing.
+var turf = require('/path/to/file');
+ppl use promises now. We learned callbacks.
+err is always the first argument that bubbles up from a callback function
+
+    if (err) return cb(err)
+    console.log('success!')
+    var fs = require ('fs')
+    var simplify 
+
+    var options = {
+    tolerance: ,
+    highQuality: true,
+    keepProperties: ['NAME']
+    }
+
+ -S to save as a dependency
+example.js
+Object.assign()
+
+const, let vs vars
+Publish * 
+Quick rundown: requests / turf processing / simplify properties only to a single key.
+
+=====
+Cl10:
+Bundling to make your clients happy.
+mapboxgl geolocate button
+Binning - lots of points in clusters
+Tinning - works for larger areas
+
+======
+Cl11
+Geography does not map to property boundaries! Hover over a given county and see 
+where water flows in and out.
+
+
+Michael - Map water boundaries - All US states, boundaries, etc.
+Nat Hydrography Dept - USGS - Hydrography
+ESRI gdb compressed
+Convert to geojson. 50gb water bodies
+flowlines  - vector lines on a grid
+Use tippecanoe to create vector tiles
+
+self-host the tileserver
+
+======
+
+Cl12
+=====
+choo framework
+
+Cl 13
+=====
+Just have one big slider that loads files by the selected hour  
+
+Cl 14
+=====
+Mapzen comparable tools to mapbox.
+use coordinates of geojson line to animate path. Probably shortest distance to next path. 
