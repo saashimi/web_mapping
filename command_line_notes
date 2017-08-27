@@ -1,0 +1,142 @@
+
+ogr2ogr
+
+d3 command line cartography
+
+Install:
+
+```
+npm install -g shapefile topojson d3-geo-projection ndjson-cli json jsonfilter jsonmap jsonstats
+```
+
+Shapefile Download Module
+
+API: Take a COP dataset name and download shapefile
+
+```js
+
+module.exports = function (name, cb) {
+var url = http://gis-pdx.opendata.arcgis.com/datasets/${name}
+
+var shapefileUrl = url + // TODO esri api =(
+
+request(shapefileUrl, function (err, resp, body) {
+if (err || resp.statusCode !== 200) return cb(err || body)
+cb(null, body)
+})
+}
+```
+
+Shapefile to geojson
+
+Install:
+
+```
+npm install -g shapefile
+```
+
+```
+cd ~/downloads/shapefile-dir
+shp2json Garbage_Collection_Schedules.shp -o garbage.json
+cat gargage.json
+```
+
+Bonus - Preview w/ d3
+
+```
+npm install -g d3-geo-projection
+```
+
+Project geojson via d3:
+
+```
+geoproject 'd3.geoConicEqualArea().parallels([42, 46]).rotate([120, 0]).fitSize([960, 960], d)' < garbage.json > garbage-albers.json
+```
+
+Make svg:
+
+```
+geo2svg -w 960 -h 960 < garbage-albers.json > garbage-albers.svg
+```
+
+To ndjson!
+
+```
+npm install -g ndjson-cli json
+```
+
+Similar toolchain, jsonlines.
+
+```
+ndjson-split 'd.features' < garbage.json > data.ndjson
+```
+
+OR
+
+```
+cat garbage.json | ndjson-split 'd.features' > data.ndjson
+```
+
+ndjson Analysis
+
+See what a row look like:
+
+```
+cat data.ndjson | head -n1 | json
+```
+
+See how many items there are:
+
+```
+cat data.ndjson | wc -l
+```
+
+Identify common properties (jsonfilter):
+
+```
+cat data.ndjson | jsonfilter properties.Hauler | sort | uniq -c
+```
+
+Custom output or filters (jsonmap):
+
+```
+cat data.ndjson | jsonmap "if (this.Hauler === 'Arrow Sanitary') this"
+```
+
+Only select some properties (ndjson-map):
+
+```
+cat data.ndjson | ndjson-map 'd.properties = {hauler: d.Hauler}, d'
+```
+
+Back to Geojson
+
+```
+cat data.ndjson | ndjson-reduce 'p.features.push(d), p' '{type: "FeatureCollection", features: []}'
+```
+
+Topojson
+
+```
+npm install -g topojson
+```
+
+Convert geojson (regular) to topojson:
+
+```
+geo2topo garbage.json -o garbage.topojson
+```
+
+Convert ndjson geojson to topojson:
+
+```
+geo2topo -n data.ndjson -o garbage-ndjson.topojson
+```
+
+Simplification
+
+Reading + demo
+
+```
+toposimplify -p 1 -f < garbage.topojson > garbage-simple.topojson
+```
